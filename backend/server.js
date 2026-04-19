@@ -11,7 +11,7 @@ const app = express();
 
 // Security
 app.use(helmet({ crossOriginResourcePolicy: { policy: 'cross-origin' } }));
-app.use(cors({ origin: process.env.CLIENT_URL || 'http://localhost:3000', credentials: true }));
+app.use(cors({ origin: process.env.CLIENT_URL || 'http://localhost:3000', origin: "*", methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"], credentials: true }));
 
 // ⚡ IMPORTANT: Stripe webhook MUST be registered BEFORE express.json()
 // and BEFORE rate limiter — raw body required for signature verification
